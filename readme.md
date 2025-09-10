@@ -1,1 +1,1 @@
-## this is project with vite and my sql
+## this is project with vite and mysql
