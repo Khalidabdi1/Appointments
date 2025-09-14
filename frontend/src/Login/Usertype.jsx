@@ -48,7 +48,8 @@ navigate("/LastLogin")
     let Gender =sessionStorage.getItem("Gender")
     let Type=sessionStorage.getItem("Type")
     
-    axios.post("http://localhost:3000/Signup",{
+   
+   axios.post("http://localhost:3000/Signup",{
         UserName:Name,
         UserEmail:Email,
         UserPassword:Password,
@@ -56,10 +57,19 @@ navigate("/LastLogin")
         UserType:Type
     }).then((database)=>{
         console.log(database.data)
+    }).catch((error)=>{
+
+console.log(error)
+navigate("/Erorrpage")
     })
-    
-    
+  
+     sessionStorage.clear()
+
     }
+ 
+    
+    
+    
     return (
 
         <div className="flex items-center justify-center h-full ">

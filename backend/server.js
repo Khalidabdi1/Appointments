@@ -61,6 +61,59 @@ app.post("/Signup",(req,res)=>{
 })
 
 
+app.get("/login/Patients",(req,res)=>{
+    let {Email,Password}=req.query
+    console.log(Password)
+    console.log("-------\n")
+    console.log(Email)
+    //login/Doctors
+    //login/Patients
+    db.query("select * from patients where email = ? AND password_hash = ?",[Email,Password],(err,resoult)=>{
+        if(err){
+         return res.json({massage:err})
+        }
+        console.log(resoult)
+
+        if(resoult.length ===0){
+            return res.json({massage:"user not found"})
+        }
+
+        return res.json({massage:"user found",UserType:"patients",resoult})
+
+    })
+
+
+
+
+})
+
+
+app.get("/login/Doctors",(req,res)=>{
+    let {Email,Password}=req.query
+    console.log(Password)
+    console.log("-------\n")
+    console.log(Email)
+  
+    db.query("select * from Doctors where email = ? AND password_hash = ?",[Email,Password],(err,resoult)=>{
+        if(err){
+         return res.json({massage:err})
+        }
+        console.log(resoult)
+
+        if(resoult.length ===0){
+            return res.json({massage:"user not found"})
+        }
+
+        return res.json({massage:"user found",UserType:"Doctors",resoult})
+
+    })
+
+
+
+
+})
+
+
 app.listen(3000,()=>{
     console.log("server is working")
 })

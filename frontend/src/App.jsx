@@ -11,6 +11,7 @@ import Login from './Login/Login'
 import Detalis from "./Login/Details"
 import Usertype from './Login/Usertype'
 import LastLogin from './Login/LastLogin'
+import ErrorPage from './Login/ErrorPage'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route path='/Detalis' element={<Detalis></Detalis>}></Route>
             <Route path='/Usertype' element={<Usertype></Usertype>}></Route>
             <Route path='/LastLogin' element={<LastLogin></LastLogin>}></Route>
+            <Route path='/Erorrpage' element={<ErrorPage/>}></Route>
  </Routes>
 
    </div>
