@@ -14,8 +14,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+
 import {
     Select,
     SelectContent,
@@ -24,8 +23,6 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 
-import { useEffect } from "react"
-import axios from "axios"
 
 
 export default function LastLogin(){

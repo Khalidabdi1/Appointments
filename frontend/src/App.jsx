@@ -1,7 +1,7 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Route , Routes,Link} from 'react-router-dom'
-import axios, { Axios } from 'axios'
+// import axios, { Axios } from 'axios'
 
 import './App.css'
 
@@ -12,6 +12,12 @@ import Detalis from "./Login/Details"
 import Usertype from './Login/Usertype'
 import LastLogin from './Login/LastLogin'
 import ErrorPage from './Login/ErrorPage'
+import DoctorLayout from './dashboard/DoctorDashboard/DoctorLayout'
+
+import Analysis from "./dashboard/DoctorDashboard/Analysis"
+import Massage from "./dashboard/DoctorDashboard/Massage"
+import Settings from "./dashboard/DoctorDashboard/Settings"
+import Home from "./dashboard/DoctorDashboard/Home"
 
 function App() {
 
@@ -29,6 +35,18 @@ function App() {
             <Route path='/Usertype' element={<Usertype></Usertype>}></Route>
             <Route path='/LastLogin' element={<LastLogin></LastLogin>}></Route>
             <Route path='/Erorrpage' element={<ErrorPage/>}></Route>
+
+            <Route path='/Dashboard/Doctors' element={<DoctorLayout/>}>
+              
+                    <Route path="Analysis" element={<Analysis/>}></Route>
+                    <Route path="Home" element={<Home/>}></Route>
+                    <Route path="Massage" element={<Massage/>}></Route>
+                    <Route path="Settings" element={<Settings/>}></Route>
+
+               
+            </Route>
+
+            
  </Routes>
 
    </div>

@@ -10,6 +10,8 @@ app.use(express.json())
 app.use(cors())
 dotenv.config()
 
+let Key="test1234"
+
 //database 
 
 let db =mysql2.createConnection({
@@ -87,6 +89,8 @@ app.get("/login/Patients",(req,res)=>{
 
 })
 
+      
+
 
 app.get("/login/Doctors",(req,res)=>{
     let {Email,Password}=req.query
@@ -102,9 +106,19 @@ app.get("/login/Doctors",(req,res)=>{
 
         if(resoult.length ===0){
             return res.json({massage:"user not found"})
+
         }
 
-        return res.json({massage:"user found",UserType:"Doctors",resoult})
+        //  let ver=jwt.verify("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImRvQGdtYWkuY29tIiwiUGFzc3dvcmQiOiJkYXdkYSIsImlhdCI6MTc1Nzk2MTY2NCwiZXhwIjoxNzU3OTY4ODY0fQ.wXqXBneVTKfJND6H_SYEt2n6BiqtdtHg3cah8eJsumA",Key,(err,resoult)=>{
+        //     if(err){
+        //         console.log(err)
+        //     }
+        //     console.log(resoult)
+        // })
+
+        let Token =jwt.sign({Email,Password},Key,{expiresIn:"2h"})
+
+        return res.json({massage:"user found",Token,UserType:"Doctors",resoult})
 
     })
 
