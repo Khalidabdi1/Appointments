@@ -13,14 +13,18 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-export function Calendar25({Hnadle}) {
+export function Calendar25({Hnadle,start,end}) {
 //   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState({
-    from:"",
-    to:""
+    from:start,
+    to:end
   })
 
+
+  React.useEffect(()=>{
   Hnadle(date)
+
+  },[date])
 
   return (
     <div className="flex flex-col gap-4">
