@@ -77,7 +77,7 @@ export default function Login() {
 
             if(database.data.UserType==="Doctors"){
                 localStorage.setItem("Token",database.data.Token)
-                navigate("/Dashboard/Doctors")
+                navigate("/Dashboard/Doctors/Home")
 
             }
 

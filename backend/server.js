@@ -128,6 +128,33 @@ app.get("/login/Doctors",(req,res)=>{
 })
 
 
+app.get("/Dashboard/Doctors",(req,res)=>{
+    let {Token}=req.query;
+    
+    if(!Token){
+        return res.json({massage:"No Token"})
+    }
+
+    
+    jwt.verify(Token,Key,(err,JWTresoult)=>{
+        if(err){
+
+            if(err.name==="TokenExpiredError"){
+                return res.json({massage:"Token Expired"})
+            }
+            return res.json({massage:"invalid Token"})
+        }
+
+
+
+        console.log(JWTresoult)
+
+        return res.json({massage:"Valid Token",JWTresoult})
+    })
+
+
+})
+
 app.listen(3000,()=>{
     console.log("server is working")
 })

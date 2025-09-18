@@ -3,9 +3,19 @@ create database Appointments;
 use  Appointments;
 
 
--- patients
+
 
 use Appointments;
+
+select * from patients;
+
+select *from  doctors;
+
+delete from patients ;
+alter table patients auto_increment=0;
+
+-- patients
+
 create table patients (
 patients_id int primary key auto_increment,
 full_name varchar(250),
@@ -30,7 +40,10 @@ email varchar(250),
 phone int ,
 bio longtext ,
 work_hours time,
-created_at date
+created_at date,
+password_hash varchar(250),
+gender varchar(250)
+
 
 );
 
